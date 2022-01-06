@@ -24,7 +24,7 @@ function About() {
     }
   }
 
-  const deleteComment = async (id) => {
+  const deleteComment = async (id, index) => {
     if(id){
       const requestOptions = {
         method: 'POST',
@@ -32,8 +32,10 @@ function About() {
         body: JSON.stringify({ title })
       };
   
-      const response = await fetch('http://localhost:8888/api/delete?item='+id, requestOptions).then(response => response.json());
-      console.log(response);
+      await fetch('http://localhost:8888/api/delete?item='+id, requestOptions).then(response => response.json());
+       
+      setData(test.filter(test => test._id !== id));
+
     }
   }
 
@@ -58,9 +60,9 @@ function About() {
             <button onClick={submitCommet}>Submit</button>
           </div>
           <ul>
-              {test.map((data)=>(
-                <li key={data._id}>
-                  <span> {data.title} </span>
+              {test.map((data, index)=>(
+                <li key={index}>
+                  <span> {data.title}</span>
                   <button onClick={(e)=> deleteComment(data._id)}>Sil</button>
                 </li>
               ))}
