@@ -1,0 +1,19 @@
+{
+  "name": "appservices",
+  "version": "1.1.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -r esm app.js"
+  },
+  "author": "Murat Yardim",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4",
+    "nodemon": "^2.0.15"
+  }
+}
