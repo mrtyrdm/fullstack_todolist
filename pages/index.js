@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios";
-
+import Todo from "./components/Todo";
 
 function About() {
 
@@ -59,12 +59,10 @@ function About() {
             <input placeholder="Todo add" type="text" value={title} onChange={(e)=> setCommet(e.target.value)} />
             <button onClick={submitCommet}>Submit</button>
           </div>
+          
           <ul>
               {test.map((data, index)=>(
-                <li key={index}>
-                  <span> {data.title}</span>
-                  <button onClick={(e)=> deleteComment(data._id)}>Sil</button>
-                </li>
+                <Todo key={index} title={data.title} id={data._id} func={deleteComment}></Todo>
               ))}
           </ul>
         </div>
